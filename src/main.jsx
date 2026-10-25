@@ -138,7 +138,7 @@ function App() {
           </div>
           <div className="hero-visual">
             <div className="portrait-frame">
-              <img src="/images/profile-placeholder.svg" alt="Replace this placeholder with Ushasri's professional portrait" />
+              <img src={`${import.meta.env.BASE_URL}photo.png`} alt="Ushasri Mogadali" />
 
             </div>
             <div className="orbit orbit-one" />
