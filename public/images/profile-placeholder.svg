@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="900" viewBox="0 0 720 900">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#dce5f7"/>
+      <stop offset="1" stop-color="#f0e9dd"/>
+    </linearGradient>
+  </defs>
+  <rect width="720" height="900" rx="32" fill="url(#bg)"/>
+  <circle cx="360" cy="300" r="118" fill="#b7c4dd"/>
+  <path d="M130 780c18-168 106-254 230-254s212 86 230 254" fill="#aab9d4"/>
+  <circle cx="360" cy="300" r="95" fill="#e8c9b1"/>
+  <path d="M266 290c-20-113 42-176 122-176 77 0 133 62 116 163-18-23-28-50-30-75-49 31-115 43-201 34-1 20-3 38-7 54z" fill="#4c4650"/>
+  <path d="M319 332q41 29 82 0" stroke="#8d625a" stroke-width="8" fill="none" stroke-linecap="round"/>
+  <text x="360" y="850" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" fill="#46536a">Replace with your portrait</text>
+</svg>
