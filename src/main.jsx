@@ -73,7 +73,7 @@ const publications = [
 
 function App() {
   const [theme, setTheme] = useState(() => {
-    try { return localStorage.getItem('ushasri-theme') || 'light' } catch { return 'light' }
+    try { return localStorage.getItem('ushasri-theme') || 'dark' } catch { return 'dark' }
   })
   const [menuOpen, setMenuOpen] = useState(false)
   const [activeProject, setActiveProject] = useState(null)
