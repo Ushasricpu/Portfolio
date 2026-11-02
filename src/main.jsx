@@ -58,7 +58,7 @@ const projects = [
 const skills = [
   { label: 'Frontend', items: ['React.js', 'AEM', 'HTML', 'CSS', 'JavaScript'] },
   { label: 'Backend', items: ['Python', 'FastAPI', 'Node.js'] },
-  { label: 'Database', items: ['PostgreSQL'] },
+  { label: 'Database', items: ['PostgreSQL', 'MongoDB'] },
   { label: 'DevOps', items: ['Git', 'Docker', 'Jenkins'] },
   { label: 'Visualization', items: ['Grafana', 'Tableau'] },
   { label: 'Tools', items: ['Postman', 'Locust', 'Figma', 'Canva', 'Blender'] }
@@ -108,10 +108,12 @@ function App() {
           {menuOpen ? <X size={20} /> : <Menu size={20} />}
         </button>
         <nav className={`nav-links ${menuOpen ? 'nav-open' : ''}`} aria-label="Main navigation">
-          <a href="#about" onClick={closeMenu}>About</a>
+          <a href="#home" onClick={closeMenu}>Home</a>
           <a href="#experience" onClick={closeMenu}>Experience</a>
           <a href="#work" onClick={closeMenu}>Projects</a>
-          <a href="#writing" onClick={closeMenu}>Research</a>
+          <a href="#skills" onClick={closeMenu}>Skills</a>
+          <a href="#writing" onClick={closeMenu}>Achievements</a>
+          <a href="#education" onClick={closeMenu}>Education</a>
           <a href="#contact" onClick={closeMenu}>Contact</a>
           <button className="theme-toggle icon-button" onClick={toggleTheme} aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} theme`} title={`Switch to ${theme === 'light' ? 'dark' : 'light'} theme`}>
             {theme === 'light' ? <Moon size={18} /> : <Sun size={18} />}
@@ -123,7 +125,7 @@ function App() {
       <main>
         <section className="hero section-wrap" id="home">
           <div className="hero-copy">
-            <div className="eyebrow"><span className="status-dot" /> SOFTWARE ENGINEER <span className="eyebrow-divider">/</span> FULL-STACK · IOT · DEVOPS</div>
+            <div className="eyebrow"><span className="status-dot" /> SOFTWARE DEVELOPER <span className="eyebrow-divider">/</span> FULL-STACK · IoT · DevOps</div>
             <h1>Ushasri <span className="text-accent">Mogadali</span></h1>
             <p className="hero-intro">Software Engineer with 4 years of experience in full-stack development, IoT platforms, and DevOps practices. Skilled in Python, React.js, PostgreSQL, Docker with experience building production-grade applications, and real time monitoring solutions.</p>
             <div className="hero-actions">
@@ -132,8 +134,12 @@ function App() {
             </div>
             <div className="hero-meta">
               <div><span className="meta-number">4<span>+</span></span><span className="meta-label">Years in software</span></div>
+                          <div className="meta-line" />
+            <div><span className="meta-number">10<span>+</span></span><span className="meta-label">Projects Delivered</span></div>
+            
               <div className="meta-line" />
               <div><span className="meta-number">6</span><span className="meta-label">Research Publications</span></div>
+
             </div>
           </div>
           <div className="hero-visual">
@@ -147,37 +153,28 @@ function App() {
           </div>
         </section>
 
-        <section className="section-wrap section-block about-section" id="about">
-          <div className="section-heading">
-            <span className="section-kicker">01 / A LITTLE ABOUT ME</span>
-            <h2>Curious by nature.<br /><span className="text-muted">Practical by design.</span></h2>
-          </div>
-          <div className="about-content">
-            <p className="about-lead">I work at the intersection of application development, connected devices, and data-driven decision-making.</p>
-            <p>My experience spans building full-stack dashboards, integrating APIs, visualizing live device data, and improving deployment workflows. I’ve also collaborated with research, government, and enterprise stakeholders — and helped teams move ideas into working solutions.</p>
-            <p>I care about making complex systems easier to understand, useful to the people who rely on them, and maintainable for the people who build them.</p>
-            <a className="text-link" href="#experience">A little more about my journey <ArrowRight size={16} /></a>
-          </div>
-        </section>
-
-        <section className="section-wrap section-block work-section" id="work">
-          <div className="section-heading heading-row">
-            <div><span className="section-kicker">02 / Projects</span><h2>Projects with a <span className="text-muted">purpose.</span></h2></div>
-            <span className="section-side-note">A selection of engineering<br />work and problem-solving.</span>
-          </div>
-          <div className="projects-grid">
-            {projects.map(project => <ProjectCard key={project.number} project={project} onOpen={() => setActiveProject(project)} />)}
-          </div>
-          <p className="project-footnote"><Sparkles size={15} /> Project visuals are illustrative. Add approved screenshots and verified live/repository links before publishing.</p>
-        </section>
 
         <section className="experience-band" id="experience">
           <div className="section-wrap section-block">
             <div className="section-heading heading-row">
-              <div><span className="section-kicker">03 / EXPERIENCE</span><h2>Where I’ve <span className="text-muted">made an impact.</span></h2></div>
+              <div><span className="section-kicker">02 / EXPERIENCE</span><h2>Where I’ve <span className="text-muted">made an impact.</span></h2></div>
               <BriefcaseBusiness className="heading-icon" size={30} />
             </div>
             <div className="timeline">
+              <div className="timeline-item current">
+                <div className="timeline-date">SEP 2026 — PRESENT</div>
+                <div className="timeline-marker"><span /></div>
+                <div className="timeline-content">
+                  <div className="timeline-title-row"><h3>Systems Engineer</h3></div>
+                  <p className="timeline-org">Tata Consultancy Services</p>
+                  <ul>
+                    <li>Working as a backend engineer focused on Node.js-based application development, delivering scalable APIs and service logic for enterprise workflows.</li>
+                    <li>Develop and enhance features across backend modules, contributing to product functionality, maintainability, and business value.</li>
+                    <li>Debug and resolve application issues, improve performance, and support reliable production behavior through root-cause analysis and fixes.</li>
+                    <li>Collaborate with cross-functional teams to translate requirements into efficient technical solutions and ensure smooth feature delivery.</li>
+                  </ul>
+                </div>
+              </div>
               <div className="timeline-item">
                 <div className="timeline-date">OCT 2025 — AUG 2026</div>
                 <div className="timeline-marker"><span /></div>
@@ -210,10 +207,35 @@ function App() {
           </div>
         </section>
 
+        {/* <section className="section-wrap section-block about-section" id="about">
+          <div className="section-heading">
+            <span className="section-kicker">01 / A LITTLE ABOUT ME</span>
+            <h2>Curious by nature.<br /><span className="text-muted">Practical by design.</span></h2>
+          </div>
+          <div className="about-content">
+            <p className="about-lead">I work at the intersection of application development, connected devices, and data-driven decision-making.</p>
+            <p>My experience spans building full-stack dashboards, integrating APIs, visualizing live device data, and improving deployment workflows. I’ve also collaborated with research, government, and enterprise stakeholders — and helped teams move ideas into working solutions.</p>
+            <p>I care about making complex systems easier to understand, useful to the people who rely on them, and maintainable for the people who build them.</p>
+            <a className="text-link" href="#experience">A little more about my journey <ArrowRight size={16} /></a>
+          </div>
+        </section> */}
+
+        <section className="section-wrap section-block work-section" id="work">
+          <div className="section-heading heading-row">
+            <div><span className="section-kicker">03 / Projects</span><h2>Projects with a <span className="text-muted">purpose.</span></h2></div>
+
+          </div>
+          <div className="projects-grid">
+            {projects.map(project => <ProjectCard key={project.number} project={project} onOpen={() => setActiveProject(project)} />)}
+          </div>
+
+        </section>
+
+
         <section className="section-wrap section-block skills-section" id="skills">
           <div className="section-heading">
             <span className="section-kicker">04 / Skills</span>
-            <h2>The tools behind <span className="text-muted">the work.</span></h2>
+            <h2>Areas of  <span className="text-muted">Expertise.</span></h2>
           </div>
           <div className="skills-grid">
             {skills.map((group, index) => (
@@ -242,18 +264,30 @@ function App() {
                 ))}
               </div>
               <div className="recognition-card">
-                <div className="recognition-icon"><Award size={24} /></div>
-                <span className="section-kicker">HIGHLIGHTS</span>
-                <h3>Recognition for work that matters.</h3>
+                <div className="recognition-header">
+                  <div className="recognition-icon"><Award size={24} /></div>
+                  <span className="section-kicker">Awards</span>
+                </div>
+                <h4>Recognition for work that matters.</h4>
                 <div className="recognition-item"><span className="recognition-bullet" /><p>Awarded by Silicon Labs for excellence in real-time data visualization and dashboard development.</p></div>
                 <div className="recognition-item"><span className="recognition-bullet" /><p>Best User Application at the International oneM2M Hackathon 2023.</p></div>
                 <div className="recognition-item"><span className="recognition-bullet" /><p>Represented the organization at India Mobile Congress and R&D exhibitions.</p></div>
+                <div className="recognition-item"><span className="recognition-bullet" /><p>Awarded with two-year Certification of Leadership Excellence from KIET, Kakinada.</p></div>              
               </div>
             </div>
 
+          </div>
+        </section>
+
+        <section className="section-wrap section-block education-section" id="education">
+          <div className="section-heading">
+            <span className="section-kicker">06 / EDUCATION</span>
+            <h2>Academic <span className="text-muted">background.</span></h2>
+          </div>
+
+          <div className="education-list">
             <div className="education-line">
               <div>
-                <span className="section-kicker">EDUCATION</span>
                 <h3>B.Tech in Computer Science</h3>
                 <p>Kakinada Institute of Engineering and Technology for Women · JNTUK</p>
               </div>
@@ -281,10 +315,8 @@ function App() {
                 2015 — 2016 <i>·</i> CGPA 8.8
               </span>
             </div>
-
           </div>
         </section>
-
 
         <section className="contact-section" id="contact">
           <div className="section-wrap contact-inner">
