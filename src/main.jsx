@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import { createRoot } from 'react-dom/client'
 import {
-  ArrowDown, ArrowDownRight, ArrowRight, ArrowUpRight, Award, BookOpen,
-  BriefcaseBusiness, Check, Code2, ExternalLink, Github, Globe2, Layers3, FileText,
+  ArrowDownRight, ArrowRight, ArrowUpRight, Award, BookOpen,
+  BriefcaseBusiness, Check, Code2, ExternalLink, Github, Globe2, FileText,
   Linkedin, Mail, Menu, Moon, Sun, X, Zap, MapPinned, Activity, Leaf,
-  Container, ChartNoAxesCombined, Terminal, Download, Sparkles
+  Container, Sparkles
 } from 'lucide-react'
 import './styles.css'
+
+const resumeHref = `${import.meta.env.BASE_URL}resume.pdf`
+const linkedInUrl = 'https://www.linkedin.com/in/ushasri-mogadali/'
+const githubUrl = 'https://github.com/Ushasricpu'
 
 const projects = [
   {
@@ -57,7 +61,8 @@ const projects = [
 
 const skills = [
   { label: 'Frontend', items: ['React.js', 'AEM', 'HTML', 'CSS', 'JavaScript'] },
-  { label: 'Backend', items: ['Python', 'FastAPI', 'Node.js'] },
+  { label: 'Backend', items: ['Python', 'FastAPI', 'Node.js', 'Express.js', 'REST APIs'] },
+  { label: 'IoT & Protocols', items: ['oneM2M', 'MQTT', 'REST APIs'] },
   { label: 'Database', items: ['PostgreSQL', 'MongoDB'] },
   { label: 'DevOps', items: ['Git', 'Docker', 'Jenkins'] },
   { label: 'Visualization', items: ['Grafana', 'Tableau'] },
@@ -68,7 +73,9 @@ const publications = [
   { title: 'Insights into Smart City Solutions', venue: 'TSDSI Whitepaper', link: '' },
   { title: 'WF-IoT 2023', venue: 'IEEE World Forum on Internet of Things', link: 'https://doi.org/10.1109/WF-IoT58464.2023.10539501' },
   { title: 'APSCON 2024', venue: 'IEEE Applied Sensing Conference', link: 'https://doi.org/10.1109/APSCON300364.2024.10465845' },
-  { title: 'Exploratory Study on oneM2M-based Interoperability', venue: 'ICSA 2024', link: '' }
+  { title: 'Exploratory Study on oneM2M-based Interoperability', venue: 'ICSA 2024', link: '' },
+  { title: 'Accepted paper on smart city interoperability and platform design', venue: 'Accepted for publication', link: '' },
+  { title: 'Accepted paper on utility and environmental monitoring analytics', venue: 'Accepted for publication', link: '' }
 ]
 
 function App() {
@@ -118,16 +125,16 @@ function App() {
           <button className="theme-toggle icon-button" onClick={toggleTheme} aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} theme`} title={`Switch to ${theme === 'light' ? 'dark' : 'light'} theme`}>
             {theme === 'light' ? <Moon size={18} /> : <Sun size={18} />}
           </button>
-          <a className="nav-resume" href="/resume.pdf" target="_blank" rel="noreferrer">Resume <ArrowUpRight size={14} /></a>
+          <a className="nav-resume" href={resumeHref} target="_blank" rel="noreferrer">Resume <ArrowUpRight size={14} /></a>
         </nav>
       </header>
 
       <main>
         <section className="hero section-wrap" id="home">
           <div className="hero-copy">
-            <div className="eyebrow"><span className="status-dot" /> SOFTWARE DEVELOPER <span className="eyebrow-divider">/</span> FULL-STACK · IoT · DevOps</div>
+            <div className="eyebrow"><span className="status-dot" /> SOFTWARE DEVELOPER <span className="eyebrow-divider">/</span> FULL-STACK · IOT · DEVOPS</div>
             <h1>Ushasri <span className="text-accent">Mogadali</span></h1>
-            <p className="hero-intro">Software Engineer with 4 years of experience in full-stack development, IoT platforms, and DevOps practices. Skilled in Python, React.js, PostgreSQL, Docker with experience building production-grade applications, and real time monitoring solutions.</p>
+            <p className="hero-intro">I bring 4+ years of experience building full-stack applications, real-time IoT platforms, and DevOps workflows. I currently work on Node.js backend services at TCS, and previously built live monitoring dashboards and CI/CD pipelines at IIIT Hyderabad’s Smart City Research Center.</p>
             <div className="hero-actions">
               <a className="button button-primary" href="#work">Explore my work <ArrowDownRight size={17} /></a>
               <a className="button button-secondary" href="#contact">Let’s connect <ArrowUpRight size={17} /></a>
@@ -135,7 +142,7 @@ function App() {
             <div className="hero-meta">
               <div><span className="meta-number">4<span>+</span></span><span className="meta-label">Years in software</span></div>
                           <div className="meta-line" />
-            <div><span className="meta-number">10<span>+</span></span><span className="meta-label">Projects Delivered</span></div>
+            <div><span className="meta-number">4<span>+</span></span><span className="meta-label">Projects Delivered</span></div>
             
               <div className="meta-line" />
               <div><span className="meta-number">6</span><span className="meta-label">Research Publications</span></div>
@@ -153,11 +160,10 @@ function App() {
           </div>
         </section>
 
-
-        <section className="experience-band" id="experience">
+                <section className="experience-band" id="experience">
           <div className="section-wrap section-block">
             <div className="section-heading heading-row">
-              <div><span className="section-kicker">02 / EXPERIENCE</span><h2>Where I’ve <span className="text-muted">made an impact.</span></h2></div>
+              <div><span className="section-kicker">01 / EXPERIENCE</span><h2>Where I’ve <span className="text-muted">made an impact.</span></h2></div>
               <BriefcaseBusiness className="heading-icon" size={30} />
             </div>
             <div className="timeline">
@@ -168,10 +174,9 @@ function App() {
                   <div className="timeline-title-row"><h3>Systems Engineer</h3></div>
                   <p className="timeline-org">Tata Consultancy Services</p>
                   <ul>
-                    <li>Working as a backend engineer focused on Node.js-based application development, delivering scalable APIs and service logic for enterprise workflows.</li>
-                    <li>Develop and enhance features across backend modules, contributing to product functionality, maintainability, and business value.</li>
-                    <li>Debug and resolve application issues, improve performance, and support reliable production behavior through root-cause analysis and fixes.</li>
-                    <li>Collaborate with cross-functional teams to translate requirements into efficient technical solutions and ensure smooth feature delivery.</li>
+                    <li>Build and maintain Node.js backend services for enterprise workflows, covering API development, feature enhancements, and service logic.</li>
+                    <li>Diagnose and fix defects across production systems, improving reliability and helping keep releases stable.</li>
+                    <li>Work with cross-functional teams to translate requirements into maintainable backend features and support smoother delivery.</li>
                   </ul>
                 </div>
               </div>
@@ -207,34 +212,21 @@ function App() {
           </div>
         </section>
 
-        {/* <section className="section-wrap section-block about-section" id="about">
-          <div className="section-heading">
-            <span className="section-kicker">01 / A LITTLE ABOUT ME</span>
-            <h2>Curious by nature.<br /><span className="text-muted">Practical by design.</span></h2>
-          </div>
-          <div className="about-content">
-            <p className="about-lead">I work at the intersection of application development, connected devices, and data-driven decision-making.</p>
-            <p>My experience spans building full-stack dashboards, integrating APIs, visualizing live device data, and improving deployment workflows. I’ve also collaborated with research, government, and enterprise stakeholders — and helped teams move ideas into working solutions.</p>
-            <p>I care about making complex systems easier to understand, useful to the people who rely on them, and maintainable for the people who build them.</p>
-            <a className="text-link" href="#experience">A little more about my journey <ArrowRight size={16} /></a>
-          </div>
-        </section> */}
 
         <section className="section-wrap section-block work-section" id="work">
           <div className="section-heading heading-row">
-            <div><span className="section-kicker">03 / Projects</span><h2>Projects with a <span className="text-muted">purpose.</span></h2></div>
+            <div><span className="section-kicker">02 / Projects</span><h2>Projects with a <span className="text-muted">purpose.</span></h2></div>
 
           </div>
           <div className="projects-grid">
             {projects.map(project => <ProjectCard key={project.number} project={project} onOpen={() => setActiveProject(project)} />)}
           </div>
-
-        </section>
+</section>
 
 
         <section className="section-wrap section-block skills-section" id="skills">
           <div className="section-heading">
-            <span className="section-kicker">04 / Skills</span>
+            <span className="section-kicker">03 / Skills</span>
             <h2>Areas of  <span className="text-muted">Expertise.</span></h2>
           </div>
           <div className="skills-grid">
@@ -250,7 +242,7 @@ function App() {
         <section className="research-band" id="writing">
           <div className="section-wrap section-block">
             <div className="section-heading heading-row">
-              <div><span className="section-kicker">05 / RESEARCH & RECOGNITION</span><h2>Achievements</h2></div>
+              <div><span className="section-kicker">04 / RESEARCH & RECOGNITION</span><h2>Achievements</h2></div>
               <BookOpen className="heading-icon" size={30} />
             </div>
             <div className="research-layout">
@@ -272,7 +264,7 @@ function App() {
                 <div className="recognition-item"><span className="recognition-bullet" /><p>Awarded by Silicon Labs for excellence in real-time data visualization and dashboard development.</p></div>
                 <div className="recognition-item"><span className="recognition-bullet" /><p>Best User Application at the International oneM2M Hackathon 2023.</p></div>
                 <div className="recognition-item"><span className="recognition-bullet" /><p>Represented the organization at India Mobile Congress and R&D exhibitions.</p></div>
-                <div className="recognition-item"><span className="recognition-bullet" /><p>Awarded with two-year Certification of Leadership Excellence from KIET, Kakinada.</p></div>              
+                <div className="recognition-item"><span className="recognition-bullet" /><p>Received a two-year Certificate of Leadership Excellence from KIET, Kakinada.</p></div>
               </div>
             </div>
 
@@ -281,7 +273,7 @@ function App() {
 
         <section className="section-wrap section-block education-section" id="education">
           <div className="section-heading">
-            <span className="section-kicker">06 / EDUCATION</span>
+            <span className="section-kicker">05 / EDUCATION</span>
             <h2>Academic <span className="text-muted">background.</span></h2>
           </div>
 
@@ -302,7 +294,7 @@ function App() {
                 <p>Pragati Vidyalaya Junior College</p>
               </div>
               <span className="education-year">
-                2016 — 2018 <i>·</i> CGPA 9.2
+                2016 — 2018 <i>·</i> 92%
               </span>
             </div>
 
@@ -312,7 +304,7 @@ function App() {
                 <p>Government Girls High School</p>
               </div>
               <span className="education-year">
-                2015 — 2016 <i>·</i> CGPA 8.8
+                2015 — 2016 <i>·</i> 88%
               </span>
             </div>
           </div>
@@ -321,7 +313,7 @@ function App() {
         <section className="contact-section" id="contact">
           <div className="section-wrap contact-inner">
             <div className="contact-copy">
-              <span className="section-kicker">07 / Contact</span>
+              <span className="section-kicker">06 / Contact</span>
               <h2>Open for opportunities</h2>
               <p>Open to software engineering opportunities and projects. If you’re building something useful, I’d love to hear about it.</p>
               <a className="button button-light" href="mailto:ushasrimogadali@gmail.com">Start a conversation <ArrowUpRight size={17} /></a>
@@ -330,9 +322,9 @@ function App() {
             <div className="contact-details">
               <span className="contact-label">GET IN TOUCH</span>
               <a href="mailto:ushasrimogadali@gmail.com"><Mail size={17} /> ushasrimogadali@gmail.com <ArrowUpRight size={15} /></a>
-              <a href="https://www.linkedin.com/search/results/people/?keywords=Ushasri%20Mogadali" target="_blank" rel="noreferrer"><Linkedin size={17} /> Find me on LinkedIn <ArrowUpRight size={15} /></a>
-              <a href="https://www.github.com/ushasrimogodali" target="_blank" rel="noreferrer"><Github size={17} /> Find me on GitHub <ArrowUpRight size={15} /></a>
-              <a href="/resume.pdf" target="_blank" rel="noreferrer"><FileText size={17} /> View My Resume <ArrowUpRight size={14} /></a>
+              <a href={linkedInUrl} target="_blank" rel="noreferrer"><Linkedin size={17} /> Find me on LinkedIn <ArrowUpRight size={15} /></a>
+              <a href={githubUrl} target="_blank" rel="noreferrer"><Github size={17} /> Find me on GitHub <ArrowUpRight size={15} /></a>
+              <a href={resumeHref} target="_blank" rel="noreferrer"><FileText size={17} /> View My Resume <ArrowUpRight size={14} /></a>
             </div>
             <div className="contact-decoration">UM<span>.</span></div>
           </div>
@@ -357,7 +349,7 @@ function ProjectCard({ project, onOpen }) {
     <article className={`project-card project-${project.theme}`}>
       <button className="project-open" onClick={onOpen} aria-label={`Read more about ${project.title}`}>
         <div className={`project-art art-${project.visual}`}>
-          <div className="art-topline"><span>CASE STUDY / {project.number}</span><span className="art-live"><span /> CONCEPT VISUAL</span></div>
+          <div className="art-topline"><span>CASE STUDY / {project.number}</span></div>
           <ProjectVisual type={project.visual} />
           <div className="art-icon"><Icon size={19} /></div>
         </div>
@@ -403,15 +395,10 @@ function ProjectModal({ project, onClose }) {
         <div className="modal-impact"><span>THE FOCUS</span><p>{project.impact}</p></div>
         <span className="section-kicker">TECHNOLOGY</span>
         <div className="project-stack modal-stack">{project.stack.map(item => <span key={item}>{item}</span>)}</div>
-        <p className="modal-note">This case study is based on the experience described in the supplied resume. Add approved screenshots, detailed process notes, and a verified repository or demo link before publishing.</p>
         <button className="button button-primary modal-done" onClick={onClose}>Back to portfolio <ArrowRight size={16} /></button>
       </section>
     </div>
   )
-}
-
-function Service({ icon: Icon, number, title, text }) {
-  return <article className="service-card"><div className="service-top"><span>{number}</span><Icon size={21} /></div><h3>{title}</h3><p>{text}</p><ArrowDownRight className="service-arrow" size={18} /></article>
 }
 
 createRoot(document.getElementById('root')).render(<App />)

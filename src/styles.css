@@ -240,7 +240,7 @@ h1, h2, h3, p { margin-top: 0; }
 .skill-items span { color: var(--muted); font-size: 13px; line-height: 1.5; white-space: nowrap; }
 .skill-items span + span::before { content: '·'; color: var(--accent); padding-inline: 12px; }
 .research-band .section-block { padding-block: 100px; }
-.research-layout { display: grid; grid-template-columns: 1.1fr .9fr; gap: 75px; margin-top: 52px; }
+.research-layout { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(280px, .85fr); gap: 28px; margin-top: 34px; align-items: stretch; }
 .publication-list { border-top: 1px solid var(--line); }
 .publication-row { display: grid; grid-template-columns: 30px 1fr 30px; align-items: center; gap: 12px; padding: 20px 0; border-bottom: 1px solid var(--line); }
 .publication-index { color: var(--accent); font-size: 9px; }
@@ -249,14 +249,14 @@ h1, h2, h3, p { margin-top: 0; }
 .publication-link, .publication-unlinked { width: 29px; height: 29px; display: grid; place-items: center; border: 1px solid var(--line); border-radius: 50%; color: var(--muted); }
 .publication-link:hover { background: var(--accent); color: white; border-color: var(--accent); }
 .publication-unlinked { opacity: .45; }
-.recognition-card { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 27px; box-shadow: var(--card-shadow); }
+.recognition-card { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 27px; box-shadow: var(--card-shadow); min-height: 100%; }
 .recognition-header { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; }
 .recognition-icon { display: grid; place-items: center; width: 43px; height: 43px; border-radius: 10px; background: var(--accent-soft); color: var(--accent); margin-bottom: 0; flex-shrink: 0; }
 .recognition-card .section-kicker { margin: 0; font-size: 20px; }
 .recognition-card h3 { font: 700 23px/1.25 'Manrope', sans-serif; letter-spacing: -.05em; max-width: 300px; margin-bottom: 24px; }
 .recognition-item { display: grid; grid-template-columns: 8px 1fr; gap: 10px; font-family: 'DM Sans', sans-serif; margin-top: 15px; }
 .recognition-bullet { width: 6px; height: 6px; background: var(--accent); border-radius: 50%; margin-top: 7px; }
-.recognition-item p { color: var(--muted); font-size: 11px; line-height: 1.7; margin: 0; }
+.recognition-item p { color: var(--muted); font-size: 15px; line-height: 1.7; margin: 0; }
 .education-section { padding-top: 60px; }
 .education-list { margin-top: 40px; }
 .education-line { margin-top: 0; padding: 22px 0; border-top: 1px solid var(--line); display: flex; align-items: center; justify-content: space-between; gap: 24px; }
@@ -319,7 +319,6 @@ h1, h2, h3, p { margin-top: 0; }
 .modal-impact span { color: var(--accent); font: 9px 'DM Mono', monospace; letter-spacing: .08em; }
 .modal-impact p { margin: 8px 0 0; font-size: 13px; line-height: 1.7; }
 .modal-stack { margin-bottom: 20px; }
-.modal-note { color: var(--muted); background: var(--surface-soft); border-radius: 7px; padding: 13px; font-size: 10px; line-height: 1.7; }
 .modal-done { margin-top: 7px; }
 @media (max-width: 1000px) {
   .section-wrap { width: min(100% - 48px, 850px); }
