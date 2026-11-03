@@ -80,7 +80,11 @@ const publications = [
 
 function App() {
   const [theme, setTheme] = useState(() => {
-    try { return localStorage.getItem('ushasri-theme') || 'dark' } catch { return 'dark' }
+    try {
+      const saved = localStorage.getItem('ushasri-theme')
+      if (saved === 'dark' || saved === 'light') return saved
+    } catch {}
+    return 'dark'
   })
   const [menuOpen, setMenuOpen] = useState(false)
   const [activeProject, setActiveProject] = useState(null)
