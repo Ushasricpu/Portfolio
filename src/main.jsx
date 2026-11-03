@@ -70,12 +70,12 @@ const skills = [
 ]
 
 const publications = [
-  { title: 'Insights into Smart City Solutions', venue: 'TSDSI Whitepaper', link: '' },
-  { title: 'WF-IoT 2023', venue: 'IEEE World Forum on Internet of Things', link: 'https://doi.org/10.1109/WF-IoT58464.2023.10539501' },
-  { title: 'APSCON 2024', venue: 'IEEE Applied Sensing Conference', link: 'https://doi.org/10.1109/APSCON300364.2024.10465845' },
-  { title: 'Exploratory Study on oneM2M-based Interoperability', venue: 'ICSA 2024', link: '' },
-  { title: 'Accepted paper on smart city interoperability and platform design', venue: 'Accepted for publication', link: '' },
-  { title: 'Accepted paper on utility and environmental monitoring analytics', venue: 'Accepted for publication', link: '' }
+  { title: 'Insights into Smart City Solutions', venue: 'TSDSI Whitepaper', role: 'Collaborator', link: 'https://tsdsi.in/wp-content/uploads/2020/09/Smart-City-Whitepaper-Web.pdf' },
+  { title: 'Smart Street Light System using Wi-SUN and oneM2M', venue: 'WF-IoT 2023', role: 'Collaborator', link: 'https://ieeexplore.ieee.org/document/10465845' },
+  { title: 'Scalable and Interoperable Distributed Architecture for IoT in Smart Cities', venue: 'APSCON 2024', role: 'Co-author', link: 'https://ieeexplore.ieee.org/document/10539501' },
+  { title: 'Exploratory Study on oneM2M-based Interoperability', venue: 'ICSA 2024', role: 'Co-author', link: 'https://cdn.iiit.ac.in/cdn/smartcitylivinglab.iiit.ac.in/api-media/pdf_files/Exploratory_Study_of_oneM2M-based_Interoperability.pdf' },
+  { title: 'Performance Evaluation of Interoperability and Control Implementation for IoT-Based Smart Spaces', venue: 'Ficloud 2026', role: 'Co-author', link: '' },
+  { title: 'Accepted paper on utility and environmental monitoring analytics', venue: 'Accepted for publication', role: 'Collaborator', link: '' }
 ]
 
 function App() {
@@ -254,7 +254,13 @@ function App() {
                 {publications.map((item, index) => (
                   <div className="publication-row" key={item.title}>
                     <span className="publication-index">0{index + 1}</span>
-                    <div className="publication-info"><h3>{item.title}</h3><p>{item.venue}</p></div>
+                    <div className="publication-info">
+                      <h3>{item.title}</h3>
+                      <div className="publication-meta">
+                        <p>{item.venue}</p>
+                        <span className="publication-role">{item.role}</span>
+                      </div>
+                    </div>
                     {item.link ? <a className="publication-link" href={item.link} target="_blank" rel="noreferrer" aria-label={`Open ${item.title}`}><ArrowUpRight size={18} /></a> : <span className="publication-unlinked" title="Add a verified publication link when available"><ExternalLink size={16} /></span>}
                   </div>
                 ))}

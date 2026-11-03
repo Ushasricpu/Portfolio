@@ -246,6 +246,8 @@ h1, h2, h3, p { margin-top: 0; }
 .publication-index { color: var(--accent); font-size: 9px; }
 .publication-info h3 { font: 600 14px 'Manrope', sans-serif; margin-bottom: 5px; letter-spacing: -.02em; }
 .publication-info p { color: var(--muted); font-size: 11px; margin: 0; }
+.publication-meta { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.publication-role { color: var(--accent); font: 9px 'DM Mono', monospace; letter-spacing: .08em; text-transform: uppercase; white-space: nowrap; }
 .publication-link, .publication-unlinked { width: 29px; height: 29px; display: grid; place-items: center; border: 1px solid var(--line); border-radius: 50%; color: var(--muted); }
 .publication-link:hover { background: var(--accent); color: white; border-color: var(--accent); }
 .publication-unlinked { opacity: .45; }
@@ -254,9 +256,9 @@ h1, h2, h3, p { margin-top: 0; }
 .recognition-icon { display: grid; place-items: center; width: 43px; height: 43px; border-radius: 10px; background: var(--accent-soft); color: var(--accent); margin-bottom: 0; flex-shrink: 0; }
 .recognition-card .section-kicker { margin: 0; font-size: 20px; }
 .recognition-card h3 { font: 700 23px/1.25 'Manrope', sans-serif; letter-spacing: -.05em; max-width: 300px; margin-bottom: 24px; }
-.recognition-item { display: grid; grid-template-columns: 8px 1fr; gap: 10px; font-family: 'DM Sans', sans-serif; margin-top: 15px; }
+.recognition-item { display: grid; grid-template-columns: 8px 1fr; gap: 10px; font-family: 'DM Sans', sans-serif; margin-top: 30px; }
 .recognition-bullet { width: 6px; height: 6px; background: var(--accent); border-radius: 50%; margin-top: 7px; }
-.recognition-item p { color: var(--muted); font-size: 15px; line-height: 1.7; margin: 0; }
+.recognition-item p { color: var(--muted); font-size: 13px; line-height: 1.7; margin: 0; }
 .education-section { padding-top: 60px; }
 .education-list { margin-top: 40px; }
 .education-line { margin-top: 0; padding: 22px 0; border-top: 1px solid var(--line); display: flex; align-items: center; justify-content: space-between; gap: 24px; }
